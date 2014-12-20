@@ -12,53 +12,56 @@ if (guess > fav){
 
 module.exports.checkLock = function(num1, num2, num3, num4){
 
-var validFirst = false ;
+var validfirst = false;
 var validSecond = false;
 var validThird = false;
 var validFourth = false;
 
 if (num1 == 3 || num1 == 5 || num1 == 7)
-  validFirst = true;
+  validfirst = true;
+
 
 if (num2 == 2)
-	validSecond = true;
+  validSecond = true;
 
-if ( 5 <= num3 <= 100)
-
+if ((num3 == 5 ) || (num3 == 100) || (5 < num3 < 100)) 
   validThird = true;
 
-if (num4 < 9 || num4 > 20)
+if ((num3 < 5) || (num3 > 100))
+  validThird = false;
 
-	validFourth == true;
+
+if ( num4 < 9 || num4 > 20)
+  validFourth = true;
 
 if (num4 == 9 || num4 == 20)
+    validFourth = false;
 
-	validFourth = false;
 
+  if (validfirst && validFourth && validThird && validSecond)
+    return "correct" ;
 
-if (validFirst && validSecond && validThird && validFourth) 
-	return "correct"  ;
+  if (!validfirst || !validSecond || !validThird || !validFourth)
+    return "incorrect" ;
 
-if (!validFirst || !validSecond || !validThird || !validFourth) 
-	return "incorrect" ;
 
 };
 module.exports.canIGet = function(item , money){
 
 if (item =='MacBook Air' )
-	 if (money == 999)
+	 if (money >= 999)
 	 	return true;
 
 if (item == 'MacBook Pro')
-    if (money == 1299)
+    if (money >= 1299)
       return true;
 
  if (item == 'Mac Pro')
-     if  (money == 2499)
+     if  (money >= 2499)
      	 return true;
       
    if (item == 'Apple Sticker')
-     if (money == 1)
+     if (money >= 1)
         return true;
  
  return false;
