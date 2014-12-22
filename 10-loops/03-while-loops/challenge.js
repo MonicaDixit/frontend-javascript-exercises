@@ -1,4 +1,21 @@
-module.exports.stream = undefined;
+module.exports.stream = function(conditionalFn,actionFn){
 
-module.exports.sumNumbers = undefined;
+if (!conditionalFn()){
+  return false;
+}
+ var i = true;
+  while(i == true){
+    i = conditionalFn();
+    actionFn();
+    
+  }
+};
+
+module.exports.sumNumbers = function(arr){
+  var sum = 0 ;
+  while(arr.length > 0){
+  sum += arr.pop();
+  }
+  return sum; 
+};
 
